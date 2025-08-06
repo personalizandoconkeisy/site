@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keisy Style - Personalizados</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eaf4fb;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 20px 0 10px 0;
+      background-color: #1e88e5;
+      color: white;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: normal;
+      margin: 0;
+    }
+    nav {
+      background-color: #1565c0;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 15px 0;
+    }
+    nav button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+    nav button:hover {
+      text-decoration: underline;
+    }
+    .seccion {
+      display: none;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .visible {
+      display: block;
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    #catalogo .galeria img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .producto {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .producto img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    button.agregar {
+      margin-top: 10px;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: normal;
+      transition: background-color 0.3s ease;
+    }
+    button.agregar:hover {
+      background-color: #1565c0;
+    }
+    #carrito-contenido {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .carrito-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .carrito-item button {
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 2px 6px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+    }
+    form input, form select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      display: block;
+      width: 100%;
+    }
+    form button {
+      background: #1e88e5;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: normal;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #1565c0;
+    }
+    #carrito > button {
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: normal;
+      margin-right: 10px;
+      margin-bottom: 15px;
+      transition: background-color 0.3s ease;
+    }
+    #carrito > button:hover {
+      background-color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">KStyle</div>
+    <div class="page-title">Personalizando con Keisy</div>
+  </header>
+ <style>
+    .redes-flotantes {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+    }
+
+    .redes-flotantes a {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease;
+    }
+
+    .redes-flotantes a:hover {
+      background-color: #eaf4fb;
+    }
+
+    .redes-flotantes img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+   </style>
+</head>
+  <nav>
+    <button onclick="mostrarSeccion('catalogo')">Catálogo</button>
+    <button onclick="mostrarSeccion('productos')">Productos</button>
+    <button onclick="mostrarSeccion('nosotros')">Nosotros</button>
+    <button onclick="mostrarSeccion('contacto')">Contacto</button>
+    <button class="cart-icon" onclick="mostrarSeccion('carrito')">🛒</button>
+  </nav>
+ 
+  <div class="redes-flotantes">
+    <a href="https://wa.me/18292871679" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+      WhatsApp
+    </a>
+    <a href="https://web.facebook.com/" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+      Facebook
+    </a>
+  </div>
+</body>
+</html>
+
+  <main>
+    <section id="catalogo" class="seccion visible">
+      <h2>Catálogo</h2>
+      <div class="galeria">
+        <img src=" IMAGENES/imagen 1.jpg" alt="Poloche personalizado" />
+        <img src="IMAGENES/imagen 2.jpeg" alt="Poloche personalizado" />
+        <img src=" IMAGENES/imagen 5.jpeg" alt="Poloche personalizado" />
+        <img src=" IMAGENES/imagen 9.jpg" alt="Taza personalizada" />
+        <img src=" IMAGENES/imagen 10.jpeg" alt="Taza personalizada" />
+        <img src=" IMAGENES/imagen 11.jpeg" alt="Taza personalizada" />
+        <img src=" IMAGENES/imagen 15.jpg" alt="Abrigo personalizado" />
+        <img src=" IMAGENES/imagen 17.jpeg" alt="Abrigo personalizado" />
+      </div>
+    </section>
+
+    <section id="productos" class="seccion">
+      <h2>Productos</h2>
+      <div class="galeria">
+        <div class="producto">
+          <img src="IMAGENES/imagen 4.jpg" alt="Poloche personalizado" />
+          <h4>Poloche personalizado</h4>
+          <p>RD$800</p>
+          <button class="agregar" onclick="agregarAlCarrito('Poloche personalizado', 800)">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="IMAGENES/imagen 7.jpg" alt="tazas personalizada" />
+          <h4>Taza personalizada</h4>
+          <p>RD$350</p>
+          <button class="agregar" onclick="agregarAlCarrito('Taza personalizada', 350)">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="IMAGENES/imagen 14.jpeg" alt="Abrigos personalizado" />
+          <h4>Abrigo personalizado</h4>
+          <p>RD$1500</p>
+          <button class="agregar" onclick="agregarAlCarrito('Abrigo personalizado', 1500)">Agregar</button>
+        </div>
+         <div class="producto">
+        <img src=" IMAGENES/imagen 23.jpeg" alt="forros personalizado" />
+          <h4>forros personalizado</h4>
+          <p>RD$500</p>
+          <button class="agregar" onclick="agregarAlCarrito('forros personalizado', 500)">Agregar</button>
+        </div>
+        <div class="producto">
+        <img src=" IMAGENES/imagen 26.jpg" alt="llaveros personalizado" />
+          <h4>llaveros personalizado</h4>
+           <p>RD$600</p>
+          <button class="agregar" onclick="agregarAlCarrito('llaveros personalizado', 600)">Agregar</button>
+        </div>
+        <div class="producto">
+        <img src=" IMAGENES/imagen 27.jpg" alt="gorras personalizado" />
+          <h4>gorras personalizado</h4>
+          <p>RD$1800</p>
+          <button class="agregar" onclick="agregarAlCarrito('gorras personalizado', 1800)">Agregar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="seccion">
+      <h2>Sobre Nosotros</h2>
+       <h2>historia</h2>
+      <p><strong></strong> personalizando con Keisy surgio por una idea clara: ayudar a las personas a expresarse por medio de productos personalizados que sean unicos. consideramos que cada poloche ,tasas o articulos puede contar una historia, identidad o emocion.</p>
+       <p> Nos hemos enfocado en ofrecer obras con un estilo que sea propio, diseñado con Creatividad, calidad. cada diseño esta pensado en la esencia,gustos y personalidad de cada cliente.</p>
+      <p><strong>Quienes Somos</strong> una tienda virtual dedicada a ofrecer productos personalizados únicos como camisetas, gorras y tazas. Nos enfocamos en la expresión personal a través del diseño.</p>
+      <p><strong>Misión:</strong>Ofrecer productos personalizados que reflejen la identidad, emociones y estilo de cada cliente, garantizando creatividad, calidad y un servicio cercano.  </p>
+      <p><strong>Visión:</strong> Ser una marca referente en el mercado dominicano de productos personalizados, reconocida por la originalidad, innovación y compromiso con la satisfacción del cliente.</p>
+      <p><strong>Valores:</strong> <ul>
+    
+        <h4>1. Creatividad:</h4> Diseñamos cada producto con imaginación y estilo, buscando que cada pieza sea original y especial para quien la recibe.
+    
+    
+        <h4>2. Calidad:</h4> Utilizamos materiales resistentes y técnicas profesionales para asegurar que nuestros productos sean duraderos y bien terminados.
+    
+    
+        <h4>3. Compromiso:</h4> Nos dedicamos a cumplir con cada pedido con responsabilidad, puntualidad y atención personalizada.
+    
+    
+        <h4>4. Empatía:</h4> Escuchamos a nuestros clientes y entendemos sus gustos e ideas para convertirlas en diseños que los representen.
+    
+    
+        <h4>5. Innovación:</h4> Nos mantenemos actualizados con las tendencias en personalización para ofrecer siempre productos modernos, únicos y creativos.
+    
+
+</p>
+    </section>
+
+    <section id="contacto" class="seccion">
+      <h2>Contáctanos</h2>
+      <form>
+        <input type="text" placeholder="Tu nombre" required />
+        <input type="email" placeholder="Tu correo" required />
+        <input type="text" placeholder="Mensaje" required />
+        <button type="submit">Enviar</button>
+      </form>
+      <h2>Estamos ubicados en:</h2>
+<iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.724062156703!2d-69.931799!3d18.589223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf89a09a616fd3%3A0xd50a50c2de16b84c!2sMat%C3%ADas%20Ram%C3%B3n%20Mella!5e0!3m2!1ses!2sdo!4v1699381302930!5m2!1ses!2sdo"
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <section id="carrito" class="seccion">
+      <h2>Tu Carrito</h2>
+      <div id="carrito-contenido"></div>
+      <h3>Total: RD$<span id="total">0.00</span></h3>
+
+      <h3>Forma de Pago</h3>
+      <button onclick="mostrarFormaPago('efectivo')">Pago en efectivo</button>
+      <button onclick="mostrarFormaPago('tarjeta')">Pago con tarjeta</button>
+
+      <form id="form-pago-tarjeta" style="display:none;" onsubmit="procesarPago(event)">
+        <select required>
+          <option value="">Selecciona tu banco</option>
+          <option value="Banreservas">Banreservas</option>
+          <option value="Popular">Banco Popular</option>
+          <option value="BHD">BHD</option>
+          <option value="Scotia">Scotiabank</option>
+        </select>
+        <input type="text" placeholder="Nombre del titular" required />
+        <input type="text" placeholder="Número de tarjeta" required />
+        <input type="text" placeholder="Fecha de vencimiento (MM/AA)" required />
+        <input type="text" placeholder="CVV" required />
+        <button type="submit">Pagar</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const carrito = [];
+
+    function mostrarSeccion(ID) {
+      document.querySelectorAll('.seccion').forEach(seccion => seccion.classList.remove('visible'));
+      document.getElementById(ID).classList.add('visible');
+    }
+
+    function agregarAlCarrito(nombre, precio) {
+      const itemExistente = carrito.find(item => item.nombre === nombre);
+      if (itemExistente) {
+        itemExistente.cantidad++;
+        itemExistente.total = itemExistente.cantidad * itemExistente.precio;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1, total: precio });
+      }
+      actualizarCarrito();
+      mostrarSeccion('carrito');
+    }
+
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const contenedor = document.getElementById('carrito-contenido');
+      contenedor.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach((item, index) => {
+        total += item.total;
+        const div = document.createElement('div');
+        div.className = 'carrito-item';
+        div.innerHTML =
+          `<span>${item.nombre} x${item.cantidad} - RD$${item.total.toFixed(2)}</span>` +
+          `<button onclick="eliminarDelCarrito(${index})">X</button>`;
+        contenedor.appendChild(div);
+      });
+
+      document.getElementById('total').textContent = total.toFixed(2);
+    }
+
+    function mostrarFormaPago(tipo) {
+      const formTarjeta = document.getElementById('form-pago-tarjeta');
+      if (tipo === 'tarjeta') {
+        formTarjeta.style.display = 'block';
+      } else {
+        formTarjeta.style.display = 'none';
+        procesarPagoEfectivo();
+      }
+    }
+
+    function procesarPagoEfectivo() {
+      if (carrito.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+      }
+      alert('Pago en efectivo seleccionado. Gracias por tu compra.');
+      carrito.length = 0;
+      actualizarCarrito();
+      mostrarSeccion('catalogo');
+    }
+
+    function procesarPago(e) {
+      e.preventDefault();
+      if (carrito.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+      }
+      alert('¡Pago realizado con éxito! Gracias por tu compra.');
+      carrito.length = 0;
+      actualizarCarrito();
+      e.target.reset();
+      mostrarSeccion('catalogo');
+    }
+  </script>
+</body>
+</html>
